@@ -1,0 +1,19 @@
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "name": "Nguyễn Hoàng Bảo",
+    "username": "bao1",
+    "password": "bao",
+    "rePassword": "bao"
+}
+
+###
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username": "bao",
+    "password": "bao"
+}
