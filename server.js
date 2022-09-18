@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const route = require("./routes");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const PORT = 5000;
 
@@ -13,6 +14,7 @@ const connectDB = async () => {
     try {
         await mongoose.connect(
             `mongodb+srv://hoangbao-shop:baodeptrai199@hoangbao-shop.ffed83u.mongodb.net/?retryWrites=true&w=majority`,
+            // `mongodb://localhost:27017`,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
@@ -25,6 +27,8 @@ const connectDB = async () => {
 };
 connectDB();
 
+
+app.use(cors());
 route(app);
 
 app.listen(PORT, () => {

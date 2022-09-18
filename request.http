@@ -1,3 +1,10 @@
+### Check user
+
+GET http://localhost:5000/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzIyZDQxYThlYjUyZDY4MGUyYzA0YTIiLCJpYXQiOjE2NjMyMjczMjZ9.zaiI4seAjZcSIj8GZcQIEN_AuJvaerm03UYAP8NNFFs
+
+### Register user
+
 POST http://localhost:5000/auth/register
 Content-Type: application/json
 
@@ -8,12 +15,69 @@ Content-Type: application/json
     "rePassword": "bao"
 }
 
-###
+### Login user
 
 POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "username": "bao",
+    "username": "bao1",
     "password": "bao"
 }
+
+### Update user
+
+POST http://localhost:5000/auth/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzExNTk4MWZlMGQyMDlhMzkzNmU2NWEiLCJpYXQiOjE2NjIwODIxMjd9.VHT6iSzRVVlcznIRicwXgOfXUMTlWE4HY8-rQx_s4qo
+
+{
+    "name": "Nguyễn Hoàng Bảo",
+    "username": "bao1",
+    "oldPassword": "b",
+    "newPassword": "bao1"
+}
+
+### Create post
+
+POST http://localhost:5000/post/create
+Content-Type: application/json
+
+{
+    "title": "ReactJS",
+    "description": "Khóa học lập trình ReactJS",
+    "price": 20000,
+    "totalProduct": 100
+}
+
+### Get all post
+
+Get http://localhost:5000/post/get-multiple-posts
+
+### Get single post
+
+Get http://localhost:5000/post/get-single-post/631ab40d212d6454f913a9e1
+
+### Delete single post
+
+DELETE http://localhost:5000/post/delete-single-post/631ab40d212d6454f913a9e1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzE1OTI5OWIzZTNkOTFlMDJlOGM5ZDciLCJpYXQiOjE2NjI2MjcyNTN9.1K8QTFgBtovXg6HC7x_AtRbdhWG_kSJtSShuEJ9h2vQ
+
+### Buy product (add card)
+
+POST http://localhost:5000/cart/buy-product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI2YTE1MmY3MzEyZDFjYTE4ZWM4MmMiLCJpYXQiOjE2NjM0Nzk2ODB9._fKNub8tWTASBPtbzg7RXWsVSL9OU4xPZ-Bnuuy6HKY
+
+{
+    "name": "Nguyễn Hoàng Bảo",
+    "phone": "0377138449",
+    "adress": "Nghĩa Thuận",
+    "moreInfo": "Ship nhanh nha shop",
+    "amount": 89,
+    "postId": "632349216ed70d4ade402853"
+}
+
+###
+GET http://localhost:5000/cart/get-cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI2YTE1MmY3MzEyZDFjYTE4ZWM4MmMiLCJpYXQiOjE2NjM1MDI4MTl9.mRrOBREObDeNXTfz08QztEL8Wl7C6iwYcGEItl4_NXQ
