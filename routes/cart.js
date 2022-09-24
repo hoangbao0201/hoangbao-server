@@ -10,6 +10,7 @@ const verifyToken = require("../middleware/verifyToken");
 
 router.post("/buy-product", verifyToken, CartController.buyProduct);
 router.get("/get-cart", verifyToken, CartController.getCart);
+router.delete("/delete-cart/:id", verifyToken, CartController.deleteCart);
 
 
 

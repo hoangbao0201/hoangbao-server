@@ -53,12 +53,31 @@ class CartController {
                 })
             }
 
-            const cart = await Cart.findOne({user: req.userId});
+            const cart = await Cart.find({user: req.userId});
             
             res.json({
                 success: false,
                 msg: "Lấy thành công",
                 cart: cart
+            })
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                msg: 'Server error'
+            })
+        }
+    }
+
+    // [DELETE] /cart/delete-cart/:id
+    async deleteCart(req, res) {
+        try {
+            const cartId = req.params.id;
+
+            await Cart.deleteOne({ _id: cartId });
+
+            res.json({
+                success: true,
+                msg: "Xóa thành công",
             })
         } catch (error) {
             res.status(500).json({
